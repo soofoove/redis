@@ -26,7 +26,7 @@ public class Taxi extends RedisClient {
     }
 
     public String getUser(String username) {
-        //Цей метод повинен зберігати користувача
+        //Цей метод повинен повертати дані про користувача
         return null;
     }
 
