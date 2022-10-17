@@ -64,11 +64,13 @@ class TaxiTest {
         unit.scoreCalculated("username1", "123");
         unit.scoreCalculated("username", "321");
 
-        var result = unit.getBestCustomer();
+        for (int i = 0; i < 3; i++) {
+            var result = unit.getBestCustomer();
 
-        assertNotNull(result);
-        assertTrue(result.contains("username"));
-        assertFalse(result.contains("username1"));
+            assertNotNull(result);
+            assertTrue(result.contains("username"));
+            assertFalse(result.contains("username1"));
+        }
     }
 
     @Test
