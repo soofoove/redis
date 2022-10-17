@@ -50,11 +50,13 @@ class TaxiTest {
         unit.carRegistered("13.0", "11.0", "car2");
         unit.carTaken("car2");
 
-        var result = unit.getFreeCars();
+        for (int i = 0; i < 3; i++) {
+            var result = unit.getFreeCars();
 
-        assertNotNull(result);
-        assertTrue(result.contains("car1"));
-        assertFalse(result.contains("car2"));
+            assertNotNull(result);
+            assertTrue(result.contains("car1"));
+            assertFalse(result.contains("car2"));
+        }
     }
 
     @Test
