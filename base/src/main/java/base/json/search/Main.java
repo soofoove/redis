@@ -3,7 +3,6 @@ package base.json.search;
 import java.util.List;
 
 import base.json.Student;
-import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.UnifiedJedis;
 import redis.clients.jedis.json.Path;
 import redis.clients.jedis.search.Document;
@@ -13,11 +12,11 @@ import redis.clients.jedis.search.Query;
 import redis.clients.jedis.search.Schema;
 import redis.clients.jedis.search.SearchResult;
 
+@SuppressWarnings("resource")
 public class Main {
 
     public static void main(String[] args) {
-        final var node = new HostAndPort("192.168.0.6", 6379);
-        UnifiedJedis client = new UnifiedJedis(node);
+        UnifiedJedis client = new UnifiedJedis();
 
         final var student = new Student("First", "Last");
         client.jsonSet("student:123", Path.ROOT_PATH, student);

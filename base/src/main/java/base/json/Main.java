@@ -1,14 +1,13 @@
 package base.json;
 
-import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.UnifiedJedis;
 import redis.clients.jedis.json.Path;
 
+@SuppressWarnings("resource")
 public class Main {
 
     public static void main(String[] args) {
-        final var node = new HostAndPort("192.168.0.6", 6379);
-        UnifiedJedis client = new UnifiedJedis(node);
+        UnifiedJedis client = new UnifiedJedis();
 
         final var student = new Student("First", "Last");
         client.jsonSet("student", Path.ROOT_PATH, student);
